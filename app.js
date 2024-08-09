@@ -17,13 +17,13 @@ let totalValue=0;
 //using the for loop to look through the arrays
 for(let i=0; i<coinAmounts_arr.length; i++){
     
-    //GETS THE AMOUNT OF COINS LEFT AFTER DIVIDING 
+    //GETS THE AMOUNT OF COINS LEFT AFTER DIVIDING COINS BY WRAPPER CAPACITY
     let coinsLeft= (coinAmounts_arr[i] % coinWrapperCapacity_arr[i]);
 
     //UPDATE ARRAY 
     coinsLeft_arr[i]=coinsLeft;
 
-    //GETS THE NUMBER OF COINS THAT CAN BE WRAPPED
+    //GETS THE NUMBER OF COINS THAT CAN BE WRAPPED WITH NO LEFT OVERS
     let coinsToWrap=coinAmounts_arr[i]-coinsLeft_arr[i];
 
     //GET NUMBER OF WRAPPERS NEEDED
@@ -31,6 +31,10 @@ for(let i=0; i<coinAmounts_arr.length; i++){
 
     //UPDATE ARRAY
     filledWrappers_arr[i]=wrappedCoins;
+
+    //GET COIN VALUE
+    let coinValue= coinAmounts_arr[i]*coinValues_arr[i]
+    console.log(coinName[i], " value: $", coinValue );
 
     //OUTPUT TO CONSOLE WRAPPERS NEEDED
     console.log(coinName[i], " wrappers needed ", filledWrappers_arr[i] );
@@ -42,4 +46,4 @@ for(let i=0; i<coinAmounts_arr.length; i++){
 }//end for loop
 
 //output total value of all coins
-console.log(`"Total value of all coins in dollars:${totalValue}"`);
+console.log(`"Total value of all coins in dollars: $${totalValue}"`);
